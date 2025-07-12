@@ -1,7 +1,8 @@
-# Odoo-Hackathon
+# SkillSwap – Odoo Hackathon Submission
 
-Problem statement:SkillSwap
-Team Memeber: 1)Shruti Joshi  
-              2)Shruti Jamkhandi-TL (shrutijamakhandi27@gmail.com)
-              
-  
+## Team Members
+- Shruti Joshi  
+- Shruti Jamkhandi (Team Lead) – [shrutijamakhandi27@gmail.com](mailto:shrutijamakhandi27@gmail.com)
+
+## Project Video / Files
+[🔗 Google Drive Link](https://drive.google.com/drive/folders/1pPi9_GSTF-AjMenterpmdIuOO1yxEvKQ)
