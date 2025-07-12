@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSwap | Register</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(-45deg, #1f0a75, #3700b3, #00bcd4, #ffc107);
+          background-size: 600% 600%;
+          animation: gradientShift 18s ease infinite;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .register-box {
+          background: rgba(0, 0, 0, 0.8);
+          color: #fff;
+          padding: 2rem;
+          border-radius: 16px;
+          box-shadow: 0 0 20px #ffc107cc;
+          width: 100%;
+          max-width: 400px;
+          text-align: center;
+          animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .register-box h2 {
+          font-size: 1.8rem;
+          margin-bottom: 1rem;
+          color: #ffc107;
+          text-shadow: 0 0 12px #ffc107;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.8rem;
+          margin: 0.6rem 0;
+          border: none;
+          border-radius: 8px;
+          font-size: 1rem;
+          background: #282828;
+          color: #fff;
+          box-shadow: 0 0 5px #0077c2;
+          transition: box-shadow 0.3s ease;
+        }
+
+        input:focus {
+          box-shadow: 0 0 12px #00bcd4;
+          outline: none;
+        }
+
+        .register-btn {
+          width: 100%;
+          padding: 0.8rem;
+          margin-top: 1rem;
+          background: #ffc107;
+          border: none;
+          border-radius: 8px;
+          font-weight: bold;
+          color: #1f0a75;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+
+        .register-btn:hover {
+          transform: scale(1.05);
+          background: #ffb400;
+        }
+
+        .footer {
+          margin-top: 1rem;
+          font-size: 0.9rem;
+        }
+
+        .footer a {
+          color: #00bcd4;
+          text-decoration: none;
+        }
+
+        .error {
+          color: #ff4c4c;
+          font-size: 0.9rem;
+          display: none;
+          margin-top: 0.5rem;
+        }
+
+        .floating-icons span {
+          position: absolute;
+          font-size: 2rem;
+          opacity: 0.25;
+          animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-40px) rotate(180deg); }
+          100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .floating-icons span:nth-child(1) { top: 10%; left: 12%; animation-delay: 0s; }
+        .floating-icons span:nth-child(2) { top: 70%; left: 82%; animation-delay: 2s; }
+        .floating-icons span:nth-child(3) { top: 32%; left: 46%; animation-delay: 4s; }
+        .floating-icons span:nth-child(4) { top: 88%; left: 18%; animation-delay: 6s; }
+    </style>
+</head>
+<body>
+<div class="floating-icons">
+    <span>💻</span>
+    <span>🎨</span>
+    <span>📊</span>
+    <span>🔧</span>
+</div>
+
+<div class="register-box">
+    <h2>Create Your SkillSwap Account</h2>
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password (min 6 chars)" required />
+        <input type="text" id="skills" placeholder="Your Top Skill (e.g. JavaScript)" required />
+        <button class="register-btn" type="submit">Sign Up</button>
+        <div id="errorMsg" class="error">Please fill all fields correctly</div>
+    </form>
+    <div class="footer">
+        Already have an account? <a href="login.html">Log in</a>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById('registerForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const skills = document.getElementById('skills').value.trim();
+
+      if (!name || !email || password.length < 6 || !skills) {
+        errorMsg.style.display = "block";
+      } else {
+        errorMsg.style.display = "none";
+        alert("🎉 Registration successful!");
+      }
+    });
+</script>
+</body>
+</html>
