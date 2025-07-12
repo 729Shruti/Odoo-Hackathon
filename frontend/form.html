@@ -168,5 +168,72 @@
     </div>
 </div>
 
+<script>
+    window.onload = function () {
+    const name = localStorage.getItem("userName");
+    const email = localStorage.getItem("userEmail");
+
+    if (name) {
+      document.querySelector('input[placeholder="Name"]').value = name;
+    }
+
+    // Store email globally or use it directly for profile update
+    window.loggedInUserEmail = name;
+  };
+  function saveProfile() {
+    // Collect values from form inputs
+    const name = document.querySelector('input[placeholder="Name"]').value;
+    const location = document.querySelector('input[placeholder="Location"]').value;
+    const skillsOffered = document.querySelector('input[placeholder="Skills Offered (e.g. Graphic Design)"]').value;
+    const skillsWanted = document.querySelector('input[placeholder="Skills Wanted (e.g. Python)"]').value;
+    const availability = document.querySelector('select:nth-of-type(1)').value;
+    const visibility = document.querySelector('select:nth-of-type(2)').value;
+
+    // Convert comma-separated skills into arrays
+    const skillsOfferedArray = skillsOffered.split(',').map(skill => skill.trim());
+    const skillsWantedArray = skillsWanted.split(',').map(skill => skill.trim());
+
+    // // Assume email is known or stored (you can get it from sessionStorage/localStorage)
+    // const email = "user@example.com"; // REPLACE with real email
+
+    // Optional: Set profile photo URL
+    const profilePhotoUrl = "https://via.placeholder.com/80"; // Replace if user uploads photo
+
+    const payload = {
+      location: location,
+      profilePhotoUrl: profilePhotoUrl,
+      isPublic: visibility === "Public",
+      availability: availability,
+      skillsOffered: skillsOfferedArray,
+      skillsWanted: skillsWantedArray
+    };
+
+    // Send PUT request to backend
+    fetch(`http://localhost:8080/user/${name}/complete-profile`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to update profile");
+      }
+      return response.text();
+    })
+    .then(data => {
+      alert("✅ " + data);
+    })
+    .catch(error => {
+      alert("❌ " + error.message);
+    });
+  }
+
+  // Hook to Save button
+  document.querySelector('.btn-group button:nth-child(1)').addEventListener('click', saveProfile);
+</script>
+
+
 </body>
 </html>

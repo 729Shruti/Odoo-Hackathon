@@ -172,8 +172,7 @@
 
             if (response.ok) {
                 alert("🔓 Login successful!");
-                // You can redirect to dashboard or home page here
-               // window.location.href = "home.html"; // change as needed
+               window.location.href = "form.html"; 
             } else {
                 const errorText = await response.text();
                 alert("Login failed: " + errorText);
