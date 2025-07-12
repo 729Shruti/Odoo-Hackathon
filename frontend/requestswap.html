@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap | Swap Requests</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #1f0a75, #3700b3, #00bcd4, #ffc107);
+      background-size: 600% 600%;
+      animation: gradientShift 18s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.75);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #ffc10744;
+    }
+
+    header h2 {
+      color: #ffc107;
+      font-size: 1.8rem;
+      text-shadow: 0 0 8px #ffc107;
+    }
+
+    .search-home {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .search-home input {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: #282828;
+      color: #fff;
+      box-shadow: 0 0 6px #00bcd4;
+    }
+
+    .search-home button {
+      background: #ffc107;
+      border: none;
+      border-radius: 6px;
+      color: #1f0a75;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .swap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .swap-card {
+      background: rgba(0,0,0,0.7);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 0 12px #ffc10788;
+    }
+
+    .swap-card h3 {
+      color: #ffc107;
+      margin-bottom: 0.5rem;
+    }
+
+    .swap-card p {
+      font-size: 0.95rem;
+      margin: 0.3rem 0;
+    }
+
+    .status-pending {
+      color: #ffc107;
+    }
+
+    .status-rejected {
+      color: #ff4c4c;
+    }
+
+    .action-buttons {
+      margin-top: 1rem;
+    }
+
+    .action-buttons button {
+      margin-right: 0.6rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .accept-btn {
+      background: #00bcd4;
+      color: white;
+    }
+
+    .reject-btn {
+      background: #ff4c4c;
+      color: white;
+    }
+
+    .pagination {
+      text-align: center;
+      margin: 2rem;
+    }
+
+    .pagination button {
+      background: transparent;
+      border: 1px solid #ffc107;
+      color: #ffc107;
+      margin: 0 5px;
+      padding: 0.4rem 0.7rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .floating-icons span {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.2;
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-40px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+
+    .floating-icons span:nth-child(1) { top: 12%; left: 8%; animation-delay: 0s; }
+    .floating-icons span:nth-child(2) { top: 75%; left: 85%; animation-delay: 3s; }
+    .floating-icons span:nth-child(3) { top: 33%; left: 50%; animation-delay: 5s; }
+    .floating-icons span:nth-child(4) { top: 90%; left: 18%; animation-delay: 7s; }
+  </style>
+</head>
+<body>
+
+  <div class="floating-icons">
+    <span>💻</span>
+    <span>🎨</span>
+    <span>📊</span>
+    <span>🔧</span>
+  </div>
+
+  <header>
+    <h2>Swap Requests</h2>
+    <div class="search-home">
+      <input type="text" placeholder="Search" />
+      <button onclick="window.location.href='dashboard.html'">Home</button>
+    </div>
+  </header>
+
+  <section class="swap-list">
+    <div class="swap-card">
+      <h3>Marc Demo</h3>
+      <p>Offers: JavaScript</p>
+      <p>Wants: Photoshop</p>
+      <p>Rating: ⭐ 3.9 / 5</p>
+      <p class="status-pending">Status: Pending</p>
+      <div class="action-buttons">
+        <button class="accept-btn">Accept</button>
+        <button class="reject-btn">Reject</button>
+      </div>
+    </div>
+
+    <div class="swap-card">
+      <h3>Priya S.</h3>
+      <p>Offers: UI/UX Design</p>
+      <p>Wants: Machine Learning</p>
+      <p>Rating: ⭐ 4.2 / 5</p>
+      <p class="status-rejected">Status: Rejected</p>
+    </div>
+
+    <div class="swap-card">
+      <h3>Joe Wills</h3>
+      <p>Offers: Python</p>
+      <p>Wants: Illustrator</p>
+      <p>Rating: ⭐ 3.5 / 5</p>
+      <p class="status-pending">Status: Pending</p>
+      <div class="action-buttons">
+        <button class="accept-btn">Accept</button>
+        <button class="reject-btn">Reject</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="pagination">
+    <button>&laquo;</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>&raquo;</button>
+  </div>
+
+</body>
+</html>
