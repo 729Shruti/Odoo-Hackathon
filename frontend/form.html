@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSwap | Profile</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(-45deg, #1f0a75, #3700b3, #00bcd4, #ffc107);
+          background-size: 600% 600%;
+          animation: gradientShift 18s ease infinite;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 2rem;
+          overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .floating-icons span {
+          position: absolute;
+          font-size: 2rem;
+          opacity: 0.2;
+          animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-40px) rotate(180deg); }
+          100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .floating-icons span:nth-child(1) { top: 10%; left: 12%; animation-delay: 0s; }
+        .floating-icons span:nth-child(2) { top: 75%; left: 85%; animation-delay: 3s; }
+        .floating-icons span:nth-child(3) { top: 33%; left: 50%; animation-delay: 5s; }
+        .floating-icons span:nth-child(4) { top: 90%; left: 18%; animation-delay: 7s; }
+
+        header {
+          text-align: center;
+          margin-top: 2rem;
+          padding: 1rem;
+        }
+
+        header h2 {
+          color: #ffc107;
+          font-size: 2rem;
+          text-shadow: 0 0 8px #ffc107;
+        }
+
+        .profile-box {
+          background: rgba(0,0,0,0.75);
+          padding: 2rem;
+          border-radius: 16px;
+          box-shadow: 0 0 12px #ffc107aa;
+          width: 90%;
+          max-width: 600px;
+          margin-top: 1rem;
+        }
+
+        .profile-box input, .profile-box select {
+          width: 100%;
+          padding: 0.7rem;
+          margin: 0.6rem 0;
+          border-radius: 8px;
+          border: none;
+          background: #282828;
+          color: #fff;
+          box-shadow: 0 0 6px #0077c2;
+        }
+
+        .photo-section {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+
+        .photo-section img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          box-shadow: 0 0 8px #00bcd4;
+        }
+
+        .photo-section button {
+          margin: 0.5rem;
+          padding: 0.4rem 0.8rem;
+          border: none;
+          border-radius: 6px;
+          background: #ffc107;
+          color: #1f0a75;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .btn-group {
+          margin-top: 1.5rem;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+
+        .btn-group button {
+          background: #0077c2;
+          border: none;
+          padding: 0.6rem 1rem;
+          border-radius: 8px;
+          color: #fff;
+          font-weight: bold;
+          margin: 0.4rem;
+          cursor: pointer;
+        }
+
+        .btn-group button:hover {
+          background: #00bcd4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-icons">
+    <span>💻</span>
+    <span>🎨</span>
+    <span>📊</span>
+    <span>🔧</span>
+</div>
+
+<header>
+    <h2>My Profile</h2>
+</header>
+
+<div class="profile-box">
+    <div class="photo-section">
+        <img src="https://via.placeholder.com/80" alt="Profile Photo" />
+        <br />
+        <button onclick="alert('Upload clicked')">Add / Edit Photo</button>
+        <button onclick="alert('Remove clicked')">Remove Photo</button>
+    </div>
+
+    <input type="text" placeholder="Name" />
+    <input type="text" placeholder="Location" />
+    <input type="text" placeholder="Skills Offered (e.g. Graphic Design)" />
+    <input type="text" placeholder="Skills Wanted (e.g. Python)" />
+
+    <select>
+        <option>Availability</option>
+        <option>Weekdays</option>
+        <option>Evenings</option>
+        <option>Weekends</option>
+    </select>
+
+    <select>
+        <option>Profile Visibility</option>
+        <option>Public</option>
+        <option>Private</option>
+    </select>
+
+    <div class="btn-group">
+        <button onclick="alert('Saved!')">💾 Save</button>
+        <button onclick="alert('Changes discarded')">🗑️ Discard</button>
+        <button onclick="window.location.href='dashboard.html'">🏠 Home</button>
+    </div>
+</div>
+
+</body>
+</html>
